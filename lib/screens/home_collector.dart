@@ -12,7 +12,7 @@ class HomeCollector extends StatefulWidget {
 class _HomeCollectorState extends State<HomeCollector> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: const Color.fromARGB(255, 109, 196, 112),
       body: ListView(
         children: <Widget>[
@@ -65,12 +65,12 @@ class _HomeCollectorState extends State<HomeCollector> {
                     height: MediaQuery.of(context).size.height - 300.0,
                     child: ListView(
                       children: [
-                        _ProductItem("assets/carton.png", "carton", 10, "tunis",
-                            "14/11/2022", "unit", "status"),
-                        _ProductItem("assets/plastic.png", "plastique", 10,
-                            "tunis", "13/11/2022", "unit", "status"),
-                        _ProductItem("assets/verre.png", "verre", 10, "tunis",
-                            "12/11/2022", "unit", "status"),
+                        _ProductItem("assets/images/paper.png", "carton", 10,
+                            "tunis", "14/11/2022", "unit", "status"),
+                        _ProductItem("assets/images/bottle.png", "plastique",
+                            10, "tunis", "13/11/2022", "unit", "status"),
+                        _ProductItem("assets/images/glass.png", "verre", 10,
+                            "tunis", "12/11/2022", "unit", "status"),
                       ],
                     ),
                   ),
@@ -82,6 +82,7 @@ class _HomeCollectorState extends State<HomeCollector> {
       ),
     );
   }
+
   Widget _ProductItem(String imgpath, String name, int quantite,
       String location, String date, String unit, String status) {
     return Padding(
@@ -110,7 +111,7 @@ class _HomeCollectorState extends State<HomeCollector> {
                       tag: imgpath,
                       child: Image(
                         image: AssetImage(imgpath),
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                         height: 75.0,
                         width: 75.0,
                       ),
@@ -121,6 +122,34 @@ class _HomeCollectorState extends State<HomeCollector> {
                       children: [
                         Text(
                           name,
+                          style: const TextStyle(
+                            fontFamily: 'Montserat',
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(width: 10.0),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "$quantite kg",
+                          style: const TextStyle(
+                            fontFamily: 'Montserat',
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(width: 10.0),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "$date ",
                           style: const TextStyle(
                             fontFamily: 'Montserat',
                             fontSize: 17.0,

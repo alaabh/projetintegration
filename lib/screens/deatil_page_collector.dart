@@ -78,7 +78,7 @@ class _DetailPageState extends State<DetailPage> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(widget.imgpath),
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                     ),
                     height: 130.0,
@@ -87,8 +87,10 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ),
               Positioned(
-                  top: 250.0,
+                  top: 200.0,
+                  left: 50,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Text.rich(
@@ -142,12 +144,32 @@ class _DetailPageState extends State<DetailPage> {
                             style: TextStyle(),
                           ),
                         ],
-                      ))
+                      )),
                     ],
-                  ))
+                  )),
+              Positioned(
+                  top: 400.0,
+                  left: (MediaQuery.of(context).size.width / 6),
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.07,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                Color.fromARGB(255, 109, 196, 112)),
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0)))),
+                        onPressed: () {
+                          setState(() {});
+                        },
+                        child: const Text(
+                          "Confirm",
+                          style: TextStyle(fontSize: 14, color: Colors.white),
+                        )),
+                  )),
             ],
           ),
-          // Column(children: [Text("data")]),
         ],
       ),
     );

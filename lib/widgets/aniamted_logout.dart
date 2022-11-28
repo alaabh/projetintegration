@@ -14,11 +14,9 @@ class _MyCustomWidgetState extends State<MyCustomWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Align(
-        alignment: Alignment.centerRight,
-        child: FoldableOptions(),
-      ),
+    return Align(
+      alignment: Alignment.centerRight,
+      child: FoldableOptions(),
     );
   }
 }
@@ -34,15 +32,12 @@ class _FoldableOptionsState extends State<FoldableOptions>
     Icons.settings,
     Icons.person,
     Icons.favorite,
-    Icons.home,
-    Icons.star,
   ];
 
   late Animation<Alignment> firstAnim;
   late Animation<Alignment> secondAnim;
   late Animation<Alignment> thirdAnim;
-  late Animation<Alignment> fourthAnim;
-  late Animation<Alignment> fifthAnim;
+
   late Animation<double> verticalPadding;
   late AnimationController controller;
   final duration = Duration(milliseconds: 190);
@@ -104,19 +99,14 @@ class _FoldableOptionsState extends State<FoldableOptions>
     firstAnim =
         Tween<Alignment>(begin: Alignment.centerRight, end: Alignment.topRight)
             .animate(anim);
-    secondAnim =
-        Tween<Alignment>(begin: Alignment.centerRight, end: Alignment.topLeft)
-            .animate(anim);
-    thirdAnim = Tween<Alignment>(
+    secondAnim = Tween<Alignment>(
             begin: Alignment.centerRight, end: Alignment.centerLeft)
         .animate(anim);
-    fourthAnim = Tween<Alignment>(
-            begin: Alignment.centerRight, end: Alignment.bottomLeft)
-        .animate(anim);
-    fifthAnim = Tween<Alignment>(
+    thirdAnim = Tween<Alignment>(
             begin: Alignment.centerRight, end: Alignment.bottomRight)
         .animate(anim);
-    verticalPadding = Tween<double>(begin: 0, end: 26).animate(anim);
+
+    verticalPadding = Tween<double>(begin: 0, end: 5).animate(anim);
   }
 
   @override
@@ -150,21 +140,6 @@ class _FoldableOptionsState extends State<FoldableOptions>
                 alignment: thirdAnim.value,
                 child: getItem(
                   options.elementAt(2),
-                ),
-              ),
-              Align(
-                  alignment: fourthAnim.value,
-                  child: Container(
-                    padding: EdgeInsets.only(
-                        left: 38, bottom: verticalPadding.value),
-                    child: getItem(
-                      options.elementAt(3),
-                    ),
-                  )),
-              Align(
-                alignment: fifthAnim.value,
-                child: getItem(
-                  options.elementAt(4),
                 ),
               ),
               Align(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:projet_integration/screens/home_collector.dart';
+import 'package:projet_integration/screens/sign_in_collector.dart';
 import 'package:projet_integration/widgets/animated_button.dart';
 
 import 'custom_shape.dart';
@@ -58,7 +59,7 @@ class _ChooseState extends State<Choose> {
             RipplesAnimation(
                 fun: () {
                   setState(() {
-                    Get.to(HomeCollector());
+                    Get.to(SignInCollector());
                   });
                 },
                 text: "Collector"),

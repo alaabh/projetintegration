@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:projet_integration/widgets/aniamted_logout.dart';
 import 'package:projet_integration/widgets/boxes_coin.dart';
+import 'package:projet_integration/widgets/pie.dart';
 
 class Profile extends StatefulWidget {
   Profile({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _ProfileState extends State<Profile> {
         children: [
           SizedBox(
             width: Get.width * 1,
-            height: 200,
+            height: 150,
             child: Stack(
               fit: StackFit.expand,
               clipBehavior: Clip.none,
@@ -29,7 +30,7 @@ class _ProfileState extends State<Profile> {
                   color: Color(0xff6ae792),
                 ), //Container
                 Positioned(
-                  top: 120,
+                  top: 100,
                   left: 80,
                   child: Container(
                     decoration: BoxDecoration(
@@ -37,7 +38,7 @@ class _ProfileState extends State<Profile> {
                       color: Color.fromARGB(255, 238, 247, 241),
                     ),
                     width: 250,
-                    height: 150,
+                    height: 100,
                     child: coin(),
                   ),
                 ),
@@ -45,8 +46,22 @@ class _ProfileState extends State<Profile> {
               ],
             ),
           ),
-          Padding(padding: EdgeInsets.only(top: 100), child: Text("data")),
-          Expanded(child: MyCustomWidget())
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                PieChartWidget(),
+              ],
+            ),
+          ),
+          const Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: MyCustomWidget(),
+            ),
+          )
         ],
       ),
     );
