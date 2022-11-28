@@ -37,6 +37,11 @@ class _RecycleRequestState extends State<RecycleRequest> {
                               child: Padding(
                                 padding: EdgeInsets.only(bottom: 20),
                                 child: ListTile(
+                                  shape: RoundedRectangleBorder(
+                                    side: BorderSide(
+                                        width: 2, color: Colors.amberAccent),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                   tileColor: Colors.white,
                                   leading: Text(
                                     datalist[index].material,
